@@ -1,7 +1,7 @@
 "use strict";
 const cat = ["cat"];
 const catInDog = ["dog", "dog", "dog", "dog", "cat", "dog", "dog", "dog", "dog", "dog",];
-const large = new Array(100000).fill("cat");
+const large = new Array(10000).fill("cat");
 function catchcat(array) {
     let t0 = performance.now();
     for (let i = 0; i < array.length; i++) {
