@@ -11,4 +11,4 @@ function printAllNumbersAndAllPairsSum(numbers) {
         });
     });
 }
-printAllNumbersAndAllPairsSum([1, 2, 3, 4, 5]);
+printAllNumbersAndAllPairsSum([1, 2, 3, 4, 5]); // O(n + n^2) → O(n^2)
