@@ -12,4 +12,4 @@ function sayHiNTimes(n) {
     }
     return hiArray;
 }
-console.log(sayHiNTimes(6));
+console.log(sayHiNTimes(6)); // 空間複雑度はO(n)
