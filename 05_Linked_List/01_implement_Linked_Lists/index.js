@@ -13,25 +13,25 @@
 //     }
 // }
 
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
 
 
 
 class LinkedList {
     constructor(value) {
-        this.head = {
-            value: value, 
-            next: null
-        }
+        this.head = new Node(value);
         this.tail = this.head;
         this.length = 1;
     }
 
 
     append(value) {
-        const node = {
-            value: value,
-            next: null
-        }
+        const node = new Node(value);
         this.tail.next = node;
         this.tail = node;
         this.length++;
