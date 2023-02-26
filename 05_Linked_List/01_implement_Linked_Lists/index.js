@@ -116,6 +116,26 @@ class LinkedList {
         this.length--;
         return leader;
     }
+
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+        // nextに次の要素を入れるのではなく、
+        // 前の要素（ポインタ）を入れれば逆順に参照することができる
+        while(second) {
+            const tmp = second.next;
+            second.next = first;
+            first = second;
+            second = tmp;
+        }
+        this.head.next = null;
+        this.head = first;
+        return this.printList();
+    }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -129,6 +149,7 @@ myLinkedList.remove(2);
 console.log(myLinkedList.printList());
 myLinkedList.remove(3);
 console.log(myLinkedList.printList());
+console.log(myLinkedList.reverse());
 // myLinkedList.insert(20, 77);
 // console.log(myLinkedList.printList());
 
