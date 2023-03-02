@@ -56,7 +56,8 @@ class BinarySearchTree {
     }
 
     // 削除対象の次に大きい数字が代わりに入っている
-    remove(value) {
+    // 自作
+    myRemove(value) {
         let currentNode = this.root;
         // 対象を探し、対象のノードがあれば取得
         while(value !== currentNode.value) {
@@ -99,7 +100,91 @@ class BinarySearchTree {
             }
             currentNode.value = nextLargest.value;
         }
+
     }
+
+    // remove(value) {
+    //     if (!this.root) {
+    //       return false;
+    //     }
+    //     let currentNode = this.root;
+    //     let parentNode = null;
+    //     while(currentNode){
+    //       if(value < currentNode.value){
+    //         parentNode = currentNode;
+    //         currentNode = currentNode.left;
+    //       } else if(value > currentNode.value){
+    //         parentNode = currentNode;
+    //         currentNode = currentNode.right;
+    //       } else if (currentNode.value === value) {
+    //         //We have a match, get to work!
+            
+    //         //Option 1: No right child: 
+    //         if (currentNode.right === null) {
+    //           if (parentNode === null) {
+    //             this.root = currentNode.left;
+    //           } else {
+                
+    //             // value === currentNode.valueの条件を通過後、
+    //             // currentNodeが削除対象なので、削除対象の親のleft(right)に削除対象のleft(right)を入れれば
+    //             // currentNodeを削除できる
+    //             //if parent > current value, make current left child a child of parent
+    //             if(currentNode.value < parentNode.value) {
+    //               parentNode.left = currentNode.left;
+                
+    //             //if parent < current value, make left child a right child of parent
+    //             } else if(currentNode.value > parentNode.value) {
+    //               parentNode.right = currentNode.left;
+    //             }
+    //           }
+            
+    //         //Option 2: Right child which doesnt have a left child
+    //         } else if (currentNode.right.left === null) {
+    //           currentNode.right.left = currentNode.left;
+    //           if(parentNode === null) {
+    //             this.root = currentNode.right;
+    //           } else {
+                
+    //             //if parent > current, make right child of the left the parent
+    //             if(currentNode.value < parentNode.value) {
+    //               parentNode.left = currentNode.right;
+                
+    //             //if parent < current, make right child a right child of the parent
+    //             } else if (currentNode.value > parentNode.value) {
+    //               parentNode.right = currentNode.right;
+    //             }
+    //           }
+            
+    //         //Option 3: Right child that has a left child
+    //         } else {
+    
+    //           //find the Right child's left most child
+    //           let leftmost = currentNode.right.left;
+    //           let leftmostParent = currentNode.right;
+    //           while(leftmost.left !== null) {
+    //             leftmostParent = leftmost;
+    //             leftmost = leftmost.left;
+    //           }
+              
+    //           //Parent's left subtree is now leftmost's right subtree
+    //           leftmostParent.left = leftmost.right;
+    //           leftmost.left = currentNode.left;
+    //           leftmost.right = currentNode.right;
+    
+    //           if(parentNode === null) {
+    //             this.root = leftmost;
+    //           } else {
+    //             if(currentNode.value < parentNode.value) {
+    //               parentNode.left = leftmost;
+    //             } else if(currentNode.value > parentNode.value) {
+    //               parentNode.right = leftmost;
+    //             }
+    //           }
+    //         }
+    //       return true;
+    //       }
+    //     }
+    // }
 
     print() {
         console.log(this);
@@ -114,13 +199,16 @@ myTree.insert(21);
 myTree.insert(170);
 myTree.insert(15);
 myTree.insert(1);
+myTree.insert(13);
+myTree.insert(12);
+myTree.insert(14);
 myTree.print();
 console.log(myTree.lookup(2));
 console.log(myTree.lookup(170));
 console.log(myTree.lookup(15));
 console.log(myTree.lookup(17));
 console.log(myTree.lookup(9));
-myTree.remove(21)
+myTree.remove(15)
 myTree.print();
 
 // console.log(traverse(myTree));
