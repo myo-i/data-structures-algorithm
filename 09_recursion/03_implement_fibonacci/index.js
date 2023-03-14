@@ -6,7 +6,7 @@ function fibonacciRecursion(n) {
     // フィボナッチ数列はインデックスNの値はN-1 + N-2という発想？
     return fibonacciRecursion(n-1) + fibonacciRecursion(n-2)
 
-}
+}// O(2^n)
 // 5 4 
 
 // 4 3
@@ -32,7 +32,7 @@ function fibonacciIterative(n) {
         pre2 = ans
     }
     return ans
-}
+}//O(n)
 
 console.log(fibonacciRecursion(3))
 console.log(fibonacciIterative(6))
