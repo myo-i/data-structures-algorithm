@@ -75,6 +75,27 @@ class BinarySearchTree {
     //     3       21
     //  1   7    15    170
     // -> [9, 3, 21, 1, 7, 15, 170]
+    breadthFirstSearchRecursive(queue, list) {
+        
+        // 1, いつ止めるのか、辞めることになるのかのベースケースを作る
+        if(!queue.length) {
+            return list;
+        }
+        let currentNode = queue.shift();
+        // console.log(currentNode);
+        list.push(currentNode.value);
+
+        if(currentNode.left) {
+            queue.push(currentNode.left);
+        }
+        if(currentNode.right) {
+            queue.push(currentNode.right);
+        }
+
+        return this.breadthFirstSearchRecursive(queue, list);
+
+    }
+
 
 
 
@@ -104,6 +125,7 @@ console.log(myTree.lookup(9));
 // BFS
 console.log("-----------------------");
 console.log(myTree.breadthFirstSearch());
+console.log(myTree.breadthFirstSearchRecursive([myTree.root], []));
 console.log("-----------------------");
 
 // myTree.remove(15)
