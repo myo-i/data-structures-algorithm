@@ -99,18 +99,60 @@ class BinarySearchTree {
     //     3       21
     //  1   7    15    170
 
+    // BFS
     // -> [9, 3, 21, 1, 7, 15, 170]
 
+    // DFS
     // InOrder - [1, 3, 7, 9, 15, 21, 170]
     // PreOrder - [9, 3, 1, 7, 21, 15, 170]
     // PostOrder - [1, 7, 15, 170, 3, 21, 9]
-
-
+    DFSInOrder() {
+        return traverseInOrder(this.root, [])
+    }
+    DFSPostOrder() {
+        return traversePostOrder(this.root, [])
+    }
+    DFSPreOrder() {
+        return traversePreOrder(this.root, [])
+    }
 
 
     print() {
         console.log(this);
     }
+}
+
+function traverseInOrder(node, list) {
+    if(node.left) {
+        traverseInOrder(node.left, list);
+    }
+    list.push(node.value);
+    if(node.right) {
+        traverseInOrder(node.right, list);
+    }
+    return list;
+}
+
+function traversePreOrder(node, list) {
+    list.push(node.value);
+    if(node.left) {
+        traversePreOrder(node.left, list);
+    }
+    if(node.right) {
+        traversePreOrder(node.right, list);
+    }
+    return list;
+}
+
+function traversePostOrder(node, list) {
+    if(node.left) {
+        traversePostOrder(node.left, list);
+    }
+    if(node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value);
+    return list;
 }
 
 const myTree = new BinarySearchTree();
@@ -132,10 +174,30 @@ console.log(myTree.lookup(17));
 console.log(myTree.lookup(9));
 
 // BFS
+// console.log("-----------------------");
+// console.log(myTree.breadthFirstSearch());
+// console.log(myTree.breadthFirstSearchRecursive([myTree.root], []));
+// console.log("-----------------------");
+
+// DFS
 console.log("-----------------------");
-console.log(myTree.breadthFirstSearch());
-console.log(myTree.breadthFirstSearchRecursive([myTree.root], []));
+console.log(myTree.DFSInOrder());
+console.log(myTree.DFSPreOrder());
+console.log(myTree.DFSPostOrder());
 console.log("-----------------------");
+
+//         9
+//     3       21
+//  1   7    15    170
+
+// BFS
+// -> [9, 3, 21, 1, 7, 15, 170]
+
+// DFS
+// InOrder - [1, 3, 7, 9, 15, 21, 170]
+// PreOrder - [9, 3, 1, 7, 21, 15, 170]
+// PostOrder - [1, 7, 15, 170, 3, 21, 9]
+
 
 // myTree.remove(15)
 myTree.print();
