@@ -95,6 +95,15 @@ class BinarySearchTree {
         return this.breadthFirstSearchRecursive(queue, list);
 
     }
+    //         9
+    //     3       21
+    //  1   7    15    170
+
+    // -> [9, 3, 21, 1, 7, 15, 170]
+
+    // InOrder - [1, 3, 7, 9, 15, 21, 170]
+    // PreOrder - [9, 3, 1, 7, 21, 15, 170]
+    // PostOrder - [1, 7, 15, 170, 3, 21, 9]
 
 
 
